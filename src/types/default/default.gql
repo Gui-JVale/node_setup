@@ -1,0 +1,21 @@
+type Default {
+  id: ID!
+  name: String
+  createdBy: String!
+}
+
+input updatedDefaultInput {
+  id: ID!
+  name: String
+}
+
+extend type Query {
+  getDefaults: [Default]
+  getDefault(id: ID!): Default
+}
+
+extend type Mutation {
+  createDefault(name: String): Default!
+  updateDefault(input: updatedDefaultInput): Default!
+  removeDefault(id: ID!): Default!
+}
